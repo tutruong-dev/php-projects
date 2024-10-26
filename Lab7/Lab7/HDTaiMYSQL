@@ -1,0 +1,28 @@
+truy cập: mySQ: https://dev.mysql.com/downloads/
+chọn https://dev.mysql.com/downloads/installer/
+(1) Full
+(2) Custom
+port 3306
+password: 123456
+chuyển qua giao diện Schemas (DB)
+vào workbend
+
+1. Tạo schema mới (DB): users_schema
+   (7 trường dữ liệu)
+   chọn create schema
+
+- tên users_schema -> Apply
+- chuột phải Table -> Create Table
+  -> Primary Key
+
+* Tạo dữ liệu bảng users (lấy từ file)
+
+chỉnh file php.ini (Lab1\_ Bước 3)
+
+(778) extension_dir = "ext"
+(937) extension = curl
+(946) = mbstring
+(948) =mysqli
+(954) =pdo_mysql
+
+- đối với những thư viện ngoai thì cần tìm

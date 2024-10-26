@@ -1,0 +1,57 @@
+Tải Lab6.zip và thực hiện các công việc tiếp theo.
+
+
+Bài 1.
+a. Tạo file users/formuserinfo.php
+
+b. Tại includes/functions.php tạo function displayUsersWithLinkToForm() để hiển thị các user (tương tự như function displayUsersWithLink() ). 
+Mỗi user sẽ hiển thị username kèm link đến formuserinfo.php với thuộc tính href="formuserinfo.php?id = user_id". Trong đó, user_id là thông tin id cụ thể của user.
+Ví dụ:
+    user có id là 1 thì thuộc tính href ở link là   href="formuserinfo.php?id=1"
+
+c. Tại users/users.php gọi hàm  displayUsersWithLinkToForm() để hiển thị các user. Click vào một user bất kỳ và kiểm tra kết quả hiển thị tại formuserinfo.php.
+
+Bài 2.
+Tại formuserinfo.php,
+a. Hiển thị thông tin id của user được gửi từ việc gọi hàm displayUsersWithLinkToForm() của functions.php. 
+Gợi ý: sử dụng hàm isset($_GET['id']) để kiểm tra giá trị của id đã có hay chưa.
+           + nếu đã có: hiển thị thông tin id
+           + nếu không có: gán id = 0
+
+b. Dựa vào thông tin id đã có (ví dụ, id=1), hiển thị thông tin của user tương ứng  dưới dạng form gồm: 
+    + action="../controllers/user_controller.php" 
+    + method="POST"
+    + Các trường dữ liệu sau (kèm dữ liệu của user):
+         firstname, 
+         lastname,
+         password_input,
+         password_check,
+         primary_email
+    
+    + hidden field có name="user_id" và value là $user->user_id nhằm chuyển thông tin user_id cho user_controller.php.
+    + button Submit có thuộc tính name="btnUpdateUser" và value = "Update user"
+    
+    
+Bài 3.
+a. Tạo file controllers/user_controller.php. 
+
+b. Tại user_controller.php, viết chương trình cập nhật thông tin của user dựa vào thông tin user_id có được khi submit form ở formuserinfo.php. 
+    + nếu user_id   khác 0: Cập nhật user có id tương ứng. Thông tin cập nhật được lưu vào file users.csv (hoặc file mới  updated_users.csv).
+         Gợi ý: sử dụng hàm  fgetcsv() để đọc file và hàm fputcsv() để ghi file.
+
+    + nếu user_id   bằng 0: Hiển thị thông báo "User không tồn tại. Bạn cần tạo user mới."
+
+c. Sau khi cập nhật, chuyển hướng người dùng về trang danh sách người dùng bằng:
+    header('Location: ../users/users.php');
+
+Bài 4.
+a. Bổ sung vào function displayUsersWithLinkToForm() để thêm button "Create user" vào cuối bảng hiển thị các user.
+
+b. Bổ sung mã vào  formuserinfo.php để khi người dùng bấm chuột vào "Create user" thì hiển thị form trống để người dùng nhập dữ liệu nhằm tạo user mới. Trường hợp này, id của user chưa có nên id = 0 (xem Câu 2a).
+
+c.  Tại user_controller.php, viết chương trình tạo một user mới với các điều kiện sau:
+     + id của user là id lớn nhất của các user hiện tại + 1;
+     + username không được trùng với các username đã có.
+
+d. Sau khi cập nhật, chuyển hướng người dùng về trang danh sách người dùng bằng:
+    header('Location: ../users/users.php');

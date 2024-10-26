@@ -1,0 +1,120 @@
+2 nội dung quan trọng nhất: dùng function và sử dụng css để trang trí
+
+Bài 1.
+Tạo file tên layout.php. Nội dung layout.php gồm 2 hàm template_header() và template_footer() như sau:
+
+<?php function template_header() { ?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php print constant('PAGE_TITLE');?></title>
+	<link rel="stylesheet" href="#">
+</head>
+<body>
+	
+	<header>
+		My Header
+	</header>
+
+
+	<nav>
+		<a href="#">Link 1</a>
+		<a href="#">Link 2</a>
+	</nav>
+
+
+<?php } ?>
+
+
+<?php function template_footer() { ?>
+ 
+	<footer>
+		Copyright Info
+	</footer>
+
+
+	 <script src="#"></script>
+</body>
+</html>
+<?php } ?>
+
+
+Bài 2.
+a. Tạo file about_us.php. Nội dung about_us.php gồm nội dung như sau:
+
+<?php include "layout.php"; ?>
+
+
+<?php define("PAGE_TITLE", "About us");?>
+<?php // "opening" HTML for the template ?>
+<?php template_header();?>
+
+
+	<div class="container">
+		Here's a page all about us...
+	</div>
+
+
+<?php // "closing" HTML for the template ?>
+<?php template_footer();?>
+
+b. Hiển thị trang about_us.php. 
+
+Bài 3.
+Tạo file contact_us.php. Nội dung contact_us.php gồm nội dung như sau:
+include "layout.php"
+Định nghĩa "PAGE_TITLE" là "Contact us"
+Phần đầu lấy nội dung của hàm template_header()
+Phần body có nội dung:
+<div class="container">
+		Contact info: address, phone, email...
+</div>
+
+Phần cuối lấy nội dung của hàm template_footer()
+
+Bài 4.
+a. Tại layout.php, hàm template_header(), thay thế dòng code:
+<link rel="stylesheet" href="#">
+bằng dòng:
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+b. Quan sát sự thay đổi của trang about_us.php và contact_us.php.
+Bài 5.
+a. Tạo file form.php. Nội dung của form.php giống với form thuộc file formSoLieu.html  ở Lab 3. 
+form.php  sử dụng hàm template_header() và template_footer().
+Thuộc tính action=”process_form.php”
+
+b. Tạo file process_form.php. Công việc của process_form.php tương tự như file xuLyForm.php ở Lab 3. 
+process_form.php  sử dụng hàm template_header() và template_footer().
+
+Bài 6.
+a. Tạo file registration_form.php.  Nội dung của registration_form.php gồm có:
+Username
+Password
+Các thuộc tính của form:
+	method: POST
+	action: process_registration_form.php
+
+b. Tạo file process_registration_form.php. Nội dung của process_registration_form.php thực hiện các công việc sau:
+Kiểm tra username có tồn tại ký tự trắng hay không?
+
+Kiểm tra password có ít nhất 6 ký tự hay không?
+Kiểm tra password có ít nhất 1 ký tự viết hoa hay không?
+Kiểm tra password có 1 trong các ký tự đặc biệt (#, @, ~, ^, *) hay không?
+
+c. Tổ chức lại code dưới dạng 2 function: check_username(username) để kiểm tra username, và check_password(password) để kiểm tra password.
+ 
+d. Thiết kế hàm ascii_encrypt_password(password) để mã hóa các ký tự trong password bằng cách dịch chuyển qua phải d (d=1,2,3,...) đơn vị trong bảng mã ASCII.
+abc 
+mã hóa bằng dịch chuyển sang bên phải 1 ký tự ascii_encrypt_password
+ý nghĩa mật khẩu ban đầu -> sau khi mã hóa nó sẽ khác
+dùng 1 trong các phương pháp mã hóa
+- Tự định nghĩa hàm
+e. Thiết kế hàm standard_encrypt_password(password) để mã hóa các ký tự trong password bằng một phương pháp mã hóa bất kỳ (hash, base64,...
+- Dùng hàm có sẵn
+
+
+// Ở lớp thì hoàn thành từ bài 1 đến 5

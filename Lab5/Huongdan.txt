@@ -1,0 +1,32 @@
+1) Làm việc với file
+https://www.w3schools.com/php/php_file.asp
+VD: 
+<?php
+$myfile = fopen("webdictionary.txt", "r") or die("Unable to open file!");
+// Output one line until end-of-file
+while(!feof($myfile)) {
+  echo fgets($myfile) . "<br>";
+}
+fclose($myfile);
+?>
+
+- Mở file
+
+- Đọc file
+  + Đọc file theo từng hàng
+- Đóng file
+
+2)PHP OOP - Classes and Objects
+https://www.w3schools.com/php/php_oop_classes_objects.asp
+
+- Dữ liệu: Properties
+- Methods: nó thuộc sở hữu chung của 1 đối tượng nào đó
+          Các functions trong Hướng đối tượng không thuộc sở hữu riêng của cái nào
+- Toán từ new khi muốn tạo ra 1 Objects
+
+https://www.w3schools.com/php/php_oop_constructor.asp
+- Constructor không overload được, nó chỉ có duy nhất 1 (khác Java, ...)
+- Trong PHP chỉ chọn 1 cái để viết constructor
+
+Bước 1: tạo Classes
+Bước 2: new Objects

@@ -1,0 +1,42 @@
+Sinh viên lưu các bài tập thành 1 file có tên Lab2.php.
+
+Bài 1. [Sinh viên bỏ qua bài 1 nếu đã hoàn thành ở Lab 1]
+Khởi tạo chuỗi st1 gồm 8 ký tự dạng ddmmyyyy.
+Viết chương trình hiển thị chuỗi st1 dưới dạng dd/mm/yyyy.
+
+Ví dụ:
+    
+    st1 = "14092024".
+    Chuỗi sau khi định dạng: 14/09/2024.
+
+Bài 2.
+Khởi tạo chuỗi st2. Cho biết chuỗi st2 có phải là chuỗi đối xứng hay không?
+Ví dụ:
+    Input: st1 = "ABDBA";
+    Kết quả: Chuỗi "ABDBA" là chuỗi đối xứng
+    Input: st1 = "ABCD";
+    Kết quả: Chuỗi "ABCD" là chuỗi không đối xứng
+
+Bài 3.
+Khởi tạo chuỗi st3 dạng địa chỉ email.
+Hiển thị username  và nhà cung cấp dịch vụ.
+Ví dụ:
+    st3 = 'nguyenthanh@husc.edu.vn'
+    Username: nguyenthanh
+    Nhà cung cấp dịch vụ: husc.edu.vn
+
+Bài 4.
+Khởi tạo chuỗi  st4 là địa chỉ đầy đủ của một trang web. 
+Hiển thị thành phần cuối cùng của đường link trên (index.php).
+Hiển thị tên file (index) và phần mở rộng (php).
+Ví dụ:
+    st4 = https://w3schools.com/web/learn_php/index.php
+    Thành phần cuối cùng: index.php
+    Tên file: index
+    Phần mở rộng: php
+
+Bài 5.
+Viết chương trình "nén" một chuỗi cho trước bằng cách đếm số ký tự lặp lại liên tiếp và thêm ngay sau ký tự vừa đếm.
+Ví dụ:
+    Cho trước chuỗi st5 = "aabcccccaaa"
+    Chuỗi sau khi nén: a2b1c5a3

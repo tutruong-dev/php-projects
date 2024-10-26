@@ -1,0 +1,12 @@
+I. Hướng dẫn cài đặt PHP trên Windows và IDE Visual Studio Code
+Xem file Google Docs đính kèm.
+
+
+II. BÀI TẬP
+Bài 1. 
+- Tạo file Lab1.php.
+- Khởi tạo 4 biến có kiểu khác nhau. Hiển thị kiểu của 4 biến trên.
+
+Bài 2. [Sinh viên có thể làm tuần này hoặc làm vào tuần sau]
+- Khởi tạo chuỗi st1 gồm 8 ký tự dạng ddmmyyyy. Ví dụ: st1 = "14092023".
+- Viết chương trình hiển thị chuỗi st1 dưới dạng dd/mm/yyyy. Ví dụ:  14/09/2023.

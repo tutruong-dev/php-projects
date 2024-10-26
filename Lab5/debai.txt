@@ -1,0 +1,41 @@
+Bài 1.
+a. Tạo folder tên files trong project đang làm việc.
+b. Trong folder files, tạo mới file users.csv.
+c. Cấu trúc của users.csv có dạng như sau:
+    USERID,USERNAME,FIRSTNAME,LASTNAME,PASSWORDINPUT,PASSWORDCHECK,PRIMARYEMAIL
+Ví dụ:
+    1,johndoe123,JOHN,DOE,johndoepwd,johndoepwd,johndoe@example.com
+Hãy tạo 5 user và lưu vào users.csv.
+(Lưu ý, thông tin của 1 user thì nằm trên 1 hàng.)
+
+Bài 2.
+a. Tạo file User.php
+b. Thiết kế lớp User với các trường dữ liệu 
+    userID, userName, firstName, lastName, passwordInput, passwordCheck, primaryEmail
+c. Thiết kế các cặp get; set đối với các trường dữ liệu.
+d. Thiết kế constructor để khởi tạo đối tượng thuộc lớp User.
+e. Thiết kế phương thức fullName() trả về kết quả là họ tên đầy đủ gồm  firstName lastName
+
+Bài 3.
+a. Tạo file functions.php.
+b. Tại file functions.php, thiết kế function loadUsers() trả về danh sách các đối tượng User. Trong đó, thông tin của các user được lấy từ file users.csv.
+c. Tại file functions.php, thiết kế function displayUsers() để hiển thị danh sách user dưới dạng bảng (html table) gồm 2 trường như sau:
+    
+userName  | fullName 
+    
+    Tham khảo: (cách đọc dữ liệu từ mảng và hiển thị với html element)
+    https://digitalfox-tutorials.com/tutorial.php?title=Display-array-data-in-HTML-elements-using-PHP
+
+d. Tạo file allusers.php và gọi hàm displayUsers() từ functions.php để hiển thị danh sách user dưới dạng bảng (html table).
+e. Tạo file userinfo.php.
+f. Tại functions.php, thiết kế function displayUsersWithLink() để hiển thị danh sách user dưới dạng bảng (html table) gồm 2 trường như sau:
+    
+    userName  | fullName   
+    
+    Trong đó, 
+
+    userName   chứa link có thuộc tính href="userinfo.php?id=" đến thông tin cụ thể của user có id tương ứng.
+    Ví dụ: Khi click vào link có href="userinfo.php?id=1" thì sẽ hiển thị thông tin của user có id là 1.
+
+g. Tại userinfo.php, hiển thị thông tin của user dựa vào thông tin id ở link.
+h. Tại file allusers.php, gọi hàm displayUsersWithLink() từ functions.php để hiển thị danh sách user kèm link dưới dạng bảng.

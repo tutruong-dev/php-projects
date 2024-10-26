@@ -1,0 +1,21 @@
+PHP Associative Arrays
+PHP Functions
+PHP Forms
+- Để định danh cho input có attribute "name", "emal"
+  Vd:
+    <html>
+    <body>
+
+    <form action="welcome.php" method="POST">
+    Name: <input type="text" name="name"><br>
+    E-mail: <input type="text" name="email"><br>
+    <input type="submit">
+    </form>
+
+    </body>
+    </html> 
+    
+          .$_POST: ĐƯỢC XEM NHƯ 1 NƠI ĐỂ GỬI DỮ LIỆU
+          (CÓ SẴN TRÊN SERVER)
+                  Sử dụng .$_POST vì client dùng method gửi dữ liệu lên là = "POST"
+                  Sử dụng .$_GET vì client dùng method lấy dữ liệu là "GET"
