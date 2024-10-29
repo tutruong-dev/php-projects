@@ -1,33 +1,41 @@
 <?php
+// Define the base directory
 $GLOBALS['BASE'] = dirname(__DIR__);
-include $GLOBALS['BASE'] . "/models/User.php";
 
+// Include the User model
+include_once $GLOBALS['BASE'] . "/models/User.php";
+
+/**
+ * Load users from the database
+ *
+ * @return User[] Array of User objects
+ */
 function loadUsers()
 {
-    $servername = "localhost"; 
-    $username = "root"; 
-    $password = "123456"; 
-    $databasename = "users_schema"; 
+    $servername = "localhost";
+    $username = "root";
+    $password = "123456";
+    $databasename = "users_schema";
 
-    // Tạo kết nối
-    $conn = new mysqli($servername, $username, $password, $databasename); 
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $databasename);
 
-    // Kiểm tra kết nối
-    if ($conn->connect_error) { 
-        die("Connection failed: " . $conn->connect_error); 
-    } 
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-    // Câu lệnh SQL với tên bảng chính xác
-    $query = "SELECT * FROM users"; 
+    // SQL query to fetch users
+    $query = "SELECT * FROM users";
 
-    // Thực hiện truy vấn
-    $result = $conn->query($query); 
+    // Execute query
+    $result = $conn->query($query);
 
-    $ds_user = array();
+    $ds_user = [];
 
-    // Kiểm tra kết quả và tạo đối tượng User
-    if ($result->num_rows > 0) { 
-        while($row = $result->fetch_assoc()) { 
+    // Check the result and create User objects
+    if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
             $user = new User(
                 $row["id"],
                 $row["username"],
@@ -37,20 +45,25 @@ function loadUsers()
                 $row["password_check"],
                 $row["email"]
             );
-            $ds_user[] = $user; // Thêm đối tượng User vào mảng
-        } 
-    } else { 
-        echo "0 results"; 
-    } 
+            $ds_user[] = $user; // Add User object to array
+        }
+    } else {
+        echo "0 results";
+    }
 
-    $conn->close(); 
-    return $ds_user; // Trả về mảng các đối tượng User
+    // Close connection
+    $conn->close();
+    
+    return $ds_user; // Return array of User objects
 }
 
+/**
+ * Display users in a table format
+ */
 function displayUsers()
 {
     $ds_user = loadUsers();
-    echo '<h1>displayUsers</h1>';
+    echo '<h1>Display Users</h1>';
     echo '<table class="table-primary table-bordered">
         <thead>
             <tr>
@@ -68,10 +81,13 @@ function displayUsers()
     echo '</tbody></table>';
 }
 
+/**
+ * Display users with links to user info pages
+ */
 function displayUsersWithLink()
 {
     $ds_user = loadUsers();
-    echo '<h1>displayUsersWithLink</h1>';
+    echo '<h1>Display Users with Links</h1>';
     echo '<table class="table-primary table-bordered">
         <thead>
             <tr>
@@ -89,10 +105,13 @@ function displayUsersWithLink()
     echo '</tbody></table>';
 }
 
+/**
+ * Display users with links to forms for user information
+ */
 function displayUsersWithLinkToForm()
 {
     $ds_user = loadUsers();
-    echo '<h1>displayUsersWithLinkToForm</h1>';
+    echo '<h1>Display Users with Links to Form</h1>';
     echo '<table class="table-primary table-bordered">
         <thead>
             <tr>
@@ -107,5 +126,6 @@ function displayUsersWithLinkToForm()
             <td>' . htmlspecialchars($user->fullName()) . '</td>
         </tr>';
     }
-    echo '</tbody></table>';
+    echo '</tbody></table>'; echo'<br>';
+    echo '<a href="formuserinfo.php?id=0" class="btn btn-primary btn-lg">Create user</a>'; // Link to create a new user
 }
