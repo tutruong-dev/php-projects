@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+}
+
+thead {
+  font-weight: bold;
+}
+tr,
+td {
+  border: 1px solid #ccc;
+}
+button {
+  margin-top: 20px;
+  background-color: tomato;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+button:hover {
+  background-color: transparent;
+  color: black;
+}
